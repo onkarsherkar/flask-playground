@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", page_name="Index", page_num=1)
 
 
 @app.route("/home", methods=["GET"])
@@ -54,5 +54,5 @@ def acceptjson():
 
 @app.route("/error")
 def error():
-    a = 1 / 0
+    1 / 0
     return "error"
