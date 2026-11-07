@@ -218,3 +218,21 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Flask
+instance/
+.webassets-cache/
+
+# Environment variables
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Black
+.pytest_cache/

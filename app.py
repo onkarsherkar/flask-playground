@@ -1,11 +1,11 @@
-from flask import Flask, request, redirect, url_for
+from flask import Flask, request, redirect, url_for, render_template
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def index():
-    return "<h1>Hello</h1>"
+    return render_template("index.html")
 
 
 @app.route("/home", methods=["GET"])
@@ -37,7 +37,10 @@ def form():
         user_input = request.form["user_input"]
         print("user_input", user_input)
         return redirect(url_for("home"))
-    return '<form method="POST"> <input type="text" name="user_input" /> <input type="submit" /> </form>'
+    return (
+        '<form method="POST"> <input type="text" name="user_input" /> '
+        '<input type="submit" /> </form>'
+    )
 
 
 @app.route("/acceptjson")
