@@ -4,4 +4,6 @@
 <h1>{{number}} is greater than 10 but less than 20</h1>
 {% else %}
 <h1>{{number}} is less than or equal to 10</h1>
-{% endif %}
+{% endif %} {% for item in data %}
+<h2>{{ item.key }}</h2>
+{% endfor %} {% include "nav.html" %}
