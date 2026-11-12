@@ -6,6 +6,12 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite3"
 db = SQLAlchemy(app)
 
 
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    date_joined = db.Column(db.DateTime)
+
+
 @app.route("/")
 def index():
     return render_template("index.html", page_name="Index", page_num=1)
