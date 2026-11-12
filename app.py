@@ -73,6 +73,13 @@ def error():
 
 def insert_data():
     from datetime import datetime
+
     new_user = User(name="Flask User", date_joined=datetime.now())
     db.session.add(new_user)
+    db.session.commit()
+
+
+def update_first_user():
+    first_user = User.query.first()
+    first_user.name = "Flask Tom"
     db.session.commit()
