@@ -83,3 +83,9 @@ def update_first_user():
     first_user = User.query.first()
     first_user.name = "Flask Tom"
     db.session.commit()
+
+
+def delete_first_user():
+    first_user = User.query.first()
+    db.session.delete(first_user)
+    db.session.commit()
