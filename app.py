@@ -69,3 +69,10 @@ def acceptjson():
 def error():
     1 / 0
     return "error"
+
+
+def insert_data():
+    from datetime import datetime
+    new_user = User(name="Flask User", date_joined=datetime.now())
+    db.session.add(new_user)
+    db.session.commit()
