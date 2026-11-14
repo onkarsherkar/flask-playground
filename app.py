@@ -11,6 +11,16 @@ class User(db.Model):
     name = db.Column(db.String(100))
     date_joined = db.Column(db.DateTime)
 
+    orders = db.relationship("Order", back_populates="user")
+
+
+class Order(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    total = db.Column(db.Integer)
+    user_id = db.Column(db.ForeignKey("user.id"))
+
+    user = db.relationship("User", back_populates="orders")
+
 
 @app.route("/")
 def index():
