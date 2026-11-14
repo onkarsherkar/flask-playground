@@ -84,8 +84,17 @@ def error():
 def insert_data():
     from datetime import datetime
 
-    new_user = User(name="Flask User", date_joined=datetime.now())
-    db.session.add(new_user)
+    python_user = User(name="Python User", date_joined=datetime.now())
+    flask_user = User(name="Flask User", date_joined=datetime.now())
+    javascript_user = User(name="Javascript User", date_joined=datetime.now())
+
+    db.session.add_all([python_user, flask_user, javascript_user])
+
+    first_order = Order(total=99, user=python_user)
+    second_order = Order(total=20, user=python_user)
+    third_order = Order(total=35, user=flask_user)
+
+    db.session.add_all([first_order, second_order, third_order])
     db.session.commit()
 
 
