@@ -108,3 +108,19 @@ def delete_first_user():
     first_user = User.query.first()
     db.session.delete(first_user)
     db.session.commit()
+
+
+def query_tables():
+    first_user = User.query.first()
+
+    print("First user")
+
+    for order in first_user.orders:
+        print(f"Order ID:{order.id} Total: {order.total}")
+
+    second_user = User.query.filter_by(id=2).first()
+
+    print("Second User")
+
+    for order in second_user.orders:
+        print(f"Order ID:{order.id} Total: {order.total}")
